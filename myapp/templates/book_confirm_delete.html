@@ -1,0 +1,8 @@
+<!-- myapp/templates/book_confirm_delete.html -->
+
+<h1>Are you sure you want to delete "{{ book.title }}"?</h1>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+    <a href="{% url 'book_list' %}">Cancel</a>
+</form>

@@ -1,0 +1,31 @@
+<!-- myapp/templates/book_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<h1>Book List</h1>
+<a href="{% url 'book_create' %}">Add Book</a>
+
+<div class="book-list">
+    {% for book in books %}
+        <div class="book-item">
+            <h3>{{ book.title }}</h3>
+            <p>by {{ book.author }}</p>
+            <p>Published: {{ book.published_date }}</p>
+            <div class="actions">
+                <a href="{% url 'book_update' book.pk %}">Edit</a>
+                <a href="{% url 'book_delete' book.pk %}" class="delete">Delete</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

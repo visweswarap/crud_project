@@ -1,0 +1,8 @@
+<!-- myapp/templates/book_form.html -->
+
+<h1>{% if form.instance.pk %}Edit{% else %}New{% endif %} Book</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
